@@ -2,7 +2,7 @@ from flask import Flask,render_template
 import json
 import requests
 
-URL_APIs = "http://10.100.100.140:3246/api/palo/session/login"
+URL_APIs = "http://PATH_TO_URL_APIs"
 
 app = Flask(__name__)
 
