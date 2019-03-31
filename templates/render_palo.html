@@ -1,0 +1,28 @@
+{% extends "base_template.html" %}
+
+{% block palo_result %}
+    <p>
+        User Login  : {{result['auth-session']|length}} Users
+    </p>
+    
+    <table class="table table-sm table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">User name</th>
+                <th>ip address</th>
+                <th>Login Type</th>
+                <th>Time Out</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in result['auth-session']|sort(attribute = 'timeout', reverse = false) %}
+            <tr>
+                <td>{{item.user}}</td>
+                <td>{{item.ip}}</td>
+                <td>{{item.type}}</td>
+                <td>{{item.timeout}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
